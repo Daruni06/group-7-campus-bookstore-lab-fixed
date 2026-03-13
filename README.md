@@ -14,48 +14,48 @@ Link github: https://github.com/Daruni06/group-7-campus-bookstore-lab-fixed
 
  * Lỗi logic: 
 4. Trong file pages/dashboard.php:
-
+```php
 foreach ($orders as $order) {
    if ($order['status'] === 'pending') {
       $completedOrders++;
       $totalRevenue += calculate_order_total($order, $products);
    }
 }
-
+```
    Người code đang muốn đếm xem có bao nhiêu đơn đã hoàn thành, nhưng lại chọn những đơn hàng "pending" để đếm.
    Cách sửa: sửa 'pending' thành 'completed'.
 
 5. Trong file pages/reports.php:
-
+```php
 foreach ($products as $product) {
    $category = $product['name'];
-   
+```
    Đang kiểm tra category mà lại đi check name của product.
    Cách sửa: sửa 'name' thành 'category'.
 
 6. Trong file data/customers.php:
-
+```php
    'name' => 'Linh Pham',
    'email' => 'linh@student.example.com',
    'tier' => 'faculty',
    'active' => true,
-
+```
    Khách hàng Linh Pham đang có email student nhưng tier lại là faculty.
    Cách sửa: sửa từ tier 'faculty' thành 'student'.
 
 7. Trong file pages/orders.php:
-
+```php
    foreach ($orders as $order) {
       if ($order['status'] === 'completed') {
          $pendingOnly[] = $order;
       }
    }
-   
+``` 
    Người code đang muốn đưa các order với status 'pending' vào $pendingOnly nhưng lại xét các order có status là 'completed'
    Cách sửa: sửa status của $order thành 'pending'
 
 8. Trong file pages/checkout.php:
-
+```php
    $cart = [
       ['sku' => 'BK-101', 'qty' => 2],
       ['sku' => 'PN-301', 'qty' => 5],
@@ -66,6 +66,6 @@ foreach ($products as $product) {
    foreach ($cart as $item) {
       $subtotal = $products[$item['sku']]['price'] * $item['qty'];
    }
-
+```
    Trong giỏ hàng đang có 2 đơn, nhưng tổng $subtotal lại chỉ tính có 1 do dùng dấu bằng =.
    Cách sửa: thay dấu = thành += để cộng tổng tất cả các đơn trong $cart.
