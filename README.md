@@ -3,6 +3,7 @@
 2. 24521656 - Trần Đình Thi
 3. 24521773 - Nguyễn Hữu Tiến
 4. 24521593 - Vũ Cao Thạch
+
 Link github: https://github.com/Daruni06/group-7-campus-bookstore-lab-fixed
 
 ## Các lỗi tìm được:
